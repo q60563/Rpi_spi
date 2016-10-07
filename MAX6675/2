@@ -1,0 +1,19 @@
+import MySQLdb
+
+db = MySQLdb.connect(host="192.168.0.22", user="user",passwd="test",db="temp")
+
+cursor = db.cursor()
+
+"""cursor.execute("SELECT * FROM st_Logs")"""
+"""cursor.execute("INSERT INTO temp.st_Logs(float_Ktype1,float_Ktype2,float_Ktype3,float_Ktype4,float_Ktype5,float_Ktype6,float_Ktype7,float_Ktype8,float_Ktype9,float_Ktype10) values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)" ,(10,9,8,7,6,5,4,3,2,1))"""
+
+
+cursor.execute = ("INSERT INTO temp.st_Logs(float_Ktype1) VALUES(%s,%s)",(10))
+db.commit()
+
+result = cursor.fetchall()
+
+
+print result
+for record in result:
+	print record
